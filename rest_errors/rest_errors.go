@@ -33,6 +33,14 @@ func NewNotFoundError(message string) *RestErr {
 	}
 }
 
+func NewUnauthorizedError(message string) *RestErr {
+	return &RestErr{
+		Message: "unable to retrieve user information from give access token",
+		Status:  http.StatusUnauthorized,
+		Error:   "unauthorized",
+	}
+}
+
 func NewInternalServerError(message string, err error) *RestErr {
 	result := &RestErr{
 		Message: message,
